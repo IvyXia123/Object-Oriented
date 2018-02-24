@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button class="clickBtn">喂所有小狗吃饭</button>
+
+<script>
+    //所有小狗的实例都要放到该数组中：
+    var dogArr = [];
+
+    function Dog(name, tizhong) {
+        this.name = name;
+        this.tizhong = tizhong;
+        dogArr.push(this);   //把所有dog实例放入dogArr数组中
+    }
+
+    Dog.prototype.chifan = function () {
+        console.log(this.name + "正在吃饭！汪汪～");
+    };
+
+    var xiaobai = new Dog("小白", 100);
+    var xiaohong = new Dog("小红", 130);
+    var dahuang = new Dog("大黄", 200);
+
+    var clickBtn = document.getElementsByClassName("clickBtn")[0];
+    clickBtn.onclick = function () {
+        for (var i = 0; i < dogArr.length; i++) {
+            dogArr[i].chifan();
+        }
+    }
+
+</script>
+</body>
+</html>
